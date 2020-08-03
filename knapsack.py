@@ -23,18 +23,18 @@ tuples = zip(*sorted_pairs)
 val, wt = [ list(tuple) for tuple in  tuples]
 
 
-val1 = val[:len(val)//2]
-val2 = val[len(val)//2:]
+male = val[:len(val)//2]
+female = val[len(val)//2:]
 
 weight1 = wt[:len(weight)//2]
 weight2 = wt[len(weight)//2:]
 
-n1 = len(val1)
-n2 = len(val2)
+n1 = len(male)
+n2 = len(female)
 
 
-avg1 = int(sum(val1)/len(val1))
-avg2 = int(sum(val2)/len(val2))
+avg1 = int(sum(male)/len(male))
+avg2 = int(sum(female)/len(female))
 
 totalw = avg1+avg2
 
@@ -43,17 +43,20 @@ max2 = round(avg2/totalw*maxim)
 
 
 startknap = time.time()
-first = knapSack(max1, weight1, val1, n1)
-second = knapSack(max2, weight2, val2, n2)
+first = knapSack(max1, weight1, male, n1)
+second = knapSack(max2, weight2, female, n2)
 total = first+second
 
+print(avg1)
+print(avg2)
+print("\n")
 print(max1)
 print(max2)
 print("\n")
-print(val1)
+print(male)
 print(weight1)
 print("\n")
-print(val2)
+print(female)
 print(weight2)
 print ("\n\nFirst half : ", first)
 print ("Second half : ", second)
